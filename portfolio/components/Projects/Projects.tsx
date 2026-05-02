@@ -95,8 +95,8 @@ function ProjectCard({
         scrollTrigger: {
           trigger: cardRef.current,
           start: "top 88%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -291,8 +291,8 @@ export default function Projects() {
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -310,7 +310,7 @@ export default function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative py-32 px-6 md:px-16 max-w-7xl mx-auto"
+      className="relative py-20 md:py-32 px-6 md:px-16 max-w-7xl mx-auto"
     >
       <div
         className="absolute top-0 left-0 right-0 h-px"

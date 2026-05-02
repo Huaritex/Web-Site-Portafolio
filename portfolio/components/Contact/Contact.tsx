@@ -42,7 +42,7 @@ export default function Contact() {
         scrollTrigger: {
           trigger: terminalRef.current,
           start: "top 85%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
         },
       });
     }, sectionRef);
@@ -88,7 +88,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative py-32 px-6 md:px-16 max-w-7xl mx-auto"
+      className="relative py-20 md:py-32 px-6 md:px-16 max-w-7xl mx-auto"
     >
       <div
         className="absolute top-0 left-0 right-0 h-px"

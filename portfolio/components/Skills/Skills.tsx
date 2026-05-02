@@ -123,8 +123,8 @@ export default function Skills() {
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -138,8 +138,8 @@ export default function Skills() {
           scrollTrigger: {
             trigger: card,
             start: "top 85%",
-            end: "top 20%",
-            toggleActions: "play reverse play reverse",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
           },
         });
       });
@@ -152,7 +152,7 @@ export default function Skills() {
     <section
       ref={sectionRef}
       id="skills"
-      className="relative py-32 px-6 md:px-16 max-w-7xl mx-auto"
+      className="relative py-20 md:py-32 px-6 md:px-16 max-w-7xl mx-auto"
     >
       {/* Section title */}
       <div ref={titleRef} className="mb-16">

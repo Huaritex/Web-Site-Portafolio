@@ -161,7 +161,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
       </p>
 
       {/* Desc */}
-      <p className="text-center text-[10px] font-mono opacity-0 group-hover:opacity-60 transition-opacity duration-300 text-[var(--color-text-muted)] -mt-1">
+      <p className="text-center text-[10px] font-mono opacity-70 md:opacity-0 md:group-hover:opacity-60 transition-opacity duration-300 text-[var(--color-text-muted)] -mt-1">
         {skill.desc}
       </p>
 
@@ -191,8 +191,8 @@ export default function SoftSkills() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -228,7 +228,7 @@ export default function SoftSkills() {
     <section
       ref={sectionRef}
       id="soft-skills"
-      className="relative py-32 px-6 md:px-16 max-w-7xl mx-auto overflow-x-clip"
+      className="relative py-20 md:py-32 px-6 md:px-16 max-w-7xl mx-auto overflow-x-clip"
     >
       {/* Top separator */}
       <div
@@ -304,3 +304,4 @@ export default function SoftSkills() {
     </section>
   );
 }
+

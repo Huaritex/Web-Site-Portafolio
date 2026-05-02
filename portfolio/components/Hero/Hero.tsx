@@ -141,7 +141,7 @@ export default function Hero() {
         {/* Headline */}
         <h1
           ref={headlineRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight mb-16 overflow-hidden"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight mb-16 overflow-hidden"
         >
           <span className="block">Building the</span>
           <span className="block gradient-text">Future of</span>

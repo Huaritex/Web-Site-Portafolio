@@ -39,9 +39,9 @@ export default function About() {
         ease: "power4.out",
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "top 75%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -72,8 +72,8 @@ export default function About() {
         scrollTrigger: {
           trigger: toolsRef.current,
           start: "top 88%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       });
     }, sectionRef);
@@ -89,7 +89,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-32 px-6 md:px-16 max-w-7xl mx-auto overflow-x-clip"
+      className="relative py-20 md:py-32 px-6 md:px-16 max-w-7xl mx-auto overflow-x-clip"
     >
       {/* Ambient background blob */}
       <div
