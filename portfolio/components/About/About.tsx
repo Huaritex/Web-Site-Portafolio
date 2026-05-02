@@ -6,12 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TOOLS_ROW_1 = [
-  "Python", "TypeScript", "JavaScript", "C#", "C++", "Bash", "Linux", "Docker", "AWS",
-];
-
-const TOOLS_ROW_2 = [
-  "Metasploit", "Burp Suite", "Wireshark", "Nmap", "SQLMap", "OSINT", "Volatility", "Shodan", "TensorFlow",
+const TOOLS = [
+  "Python", "TypeScript", "JavaScript", "Bash", "Linux", "Docker", "AWS", 
+  "Metasploit", "Burp Suite", "Wireshark", "Nmap", "TensorFlow", "OSINT"
 ];
 
 const STATS = [
@@ -97,8 +94,8 @@ export default function About() {
 
       <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-center">
 
-        {/* ── Left: Image ─────────────────────────────── */}
-        <div ref={imageRef} className="relative flex justify-center">
+        {/* ── Left: Image & Status ─────────────────────── */}
+        <div ref={imageRef} className="relative flex flex-col items-center">
           <div className="relative w-full max-w-sm">
 
             {/* Decorative outer rings */}
@@ -149,35 +146,6 @@ export default function About() {
               <div className="absolute inset-0 border border-[rgba(0,255,136,0.22)] z-40 pointer-events-none" />
             </div>
 
-            {/* Terminal status card — bottom right */}
-            <div
-              className="absolute terminal-window px-4 py-3 min-w-[195px]"
-              style={{ bottom: "-20px", right: "-8px" }}
-            >
-              <div className="flex items-center gap-1.5 mb-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-                <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
-                <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-              </div>
-              <div className="font-mono text-[11px] space-y-1.5">
-                <div className="flex items-start gap-3">
-                  <span className="text-[var(--color-accent)] opacity-70 shrink-0 w-10">role</span>
-                  <span className="text-[var(--color-text-muted)]">cybersec + ml</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-[var(--color-accent)] opacity-70 shrink-0 w-10">loc</span>
-                  <span className="text-[var(--color-text-muted)]">Bolivia</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-[var(--color-accent)] opacity-70 shrink-0 w-10">status</span>
-                  <span className="flex items-center gap-1.5 text-green-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block" />
-                    available
-                  </span>
-                </div>
-              </div>
-            </div>
-
             {/* Path badge — top left */}
             <div
               className="absolute terminal-window px-3 py-2"
@@ -186,6 +154,33 @@ export default function About() {
               <span className="font-mono text-[11px] text-[var(--color-text-muted)]">
                 <span className="text-[var(--color-accent)]">~/</span>huaritex
               </span>
+            </div>
+          </div>
+
+          {/* Terminal status card — placed below the image cleanly */}
+          <div className="mt-12 terminal-window px-5 py-4 w-full max-w-sm shadow-lg relative z-10">
+            <div className="flex items-center gap-2 mb-3 border-b border-[rgba(0,255,136,0.1)] pb-3">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+              <span className="ml-2 text-[10px] font-mono text-[var(--color-text-muted)] opacity-50">status.sh</span>
+            </div>
+            <div className="font-mono text-xs space-y-2.5">
+              <div className="flex items-start gap-4">
+                <span className="text-[var(--color-accent)] opacity-70 shrink-0 w-12">role</span>
+                <span className="text-[var(--color-text-muted)]">cybersec + ml</span>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-[var(--color-accent)] opacity-70 shrink-0 w-12">loc</span>
+                <span className="text-[var(--color-text-muted)]">Bolivia</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-[var(--color-accent)] opacity-70 shrink-0 w-12">status</span>
+                <span className="flex items-center gap-2 text-green-400">
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
+                  available
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -264,13 +259,13 @@ export default function About() {
       <div ref={toolsRef} className="mt-24">
         {/* Top divider */}
         <div
-          className="h-px mb-5"
+          className="h-px mb-6"
           style={{ background: "linear-gradient(90deg,transparent,rgba(0,255,136,0.25),transparent)" }}
           aria-hidden="true"
         />
 
-        {/* Row 1 — scrolls left, green accents */}
-        <div className="relative overflow-hidden py-1 mb-1">
+        {/* Single Row — scrolls left */}
+        <div className="relative overflow-hidden py-3">
           <div
             className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
             style={{ background: "linear-gradient(90deg,var(--color-bg),transparent)" }}
@@ -280,10 +275,10 @@ export default function About() {
             style={{ background: "linear-gradient(270deg,var(--color-bg),transparent)" }}
           />
           <div className="marquee-track">
-            {[...TOOLS_ROW_1, ...TOOLS_ROW_1, ...TOOLS_ROW_1, ...TOOLS_ROW_1].map((tool, i) => (
+            {[...TOOLS, ...TOOLS, ...TOOLS, ...TOOLS].map((tool, i) => (
               <span
                 key={i}
-                className="flex items-center gap-4 px-6 text-xs font-mono text-[var(--color-text-muted)] whitespace-nowrap"
+                className="flex items-center gap-4 px-8 text-sm font-mono text-[var(--color-text-muted)] whitespace-nowrap"
               >
                 <span className="text-[var(--color-accent)] opacity-40 select-none">//</span>
                 {tool}
@@ -292,33 +287,9 @@ export default function About() {
           </div>
         </div>
 
-        {/* Row 2 — scrolls right, blue accents */}
-        <div className="relative overflow-hidden py-1">
-          <div
-            className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(90deg,var(--color-bg),transparent)" }}
-          />
-          <div
-            className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(270deg,var(--color-bg),transparent)" }}
-          />
-          <div className="marquee-track-reverse">
-            {[...TOOLS_ROW_2, ...TOOLS_ROW_2, ...TOOLS_ROW_2, ...TOOLS_ROW_2].map((tool, i) => (
-              <span
-                key={i}
-                className="flex items-center gap-4 px-6 text-xs font-mono whitespace-nowrap"
-                style={{ color: "rgba(96,165,250,0.45)" }}
-              >
-                <span style={{ color: "rgba(96,165,250,0.35)" }} className="select-none">//</span>
-                {tool}
-              </span>
-            ))}
-          </div>
-        </div>
-
         {/* Bottom divider */}
         <div
-          className="h-px mt-5"
+          className="h-px mt-6"
           style={{ background: "linear-gradient(90deg,transparent,rgba(0,255,136,0.25),transparent)" }}
           aria-hidden="true"
         />

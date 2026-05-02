@@ -17,6 +17,15 @@ export default function Preloader() {
     const text = textRef.current;
     if (!overlay || !bar || !num || !text) return;
 
+    // Prevent automatic browser scroll restoration
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    // Force scroll to top and lock scrolling while preloader is active
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
+
     const tl = gsap.timeline();
 
     // Count up 0 → 100
@@ -55,9 +64,17 @@ export default function Preloader() {
       "-=0.1"
     );
 
-    tl.call(() => setVisible(false));
+    tl.call(() => {
+      // Ensure we stay at the top when preloader finishes and unlock scroll
+      window.scrollTo(0, 0);
+      document.body.style.overflow = "";
+      setVisible(false);
+    });
 
-    return () => { tl.kill(); };
+    return () => { 
+      document.body.style.overflow = "";
+      tl.kill(); 
+    };
   }, []);
 
   if (!visible) return null;

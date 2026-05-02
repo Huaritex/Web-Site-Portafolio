@@ -254,7 +254,7 @@ export default function Projects() {
             scrollTrigger: {
               trigger: cardsContainerRef.current,
               start: "top 80%",
-              once: true,
+              toggleActions: "play reverse play reverse",
             },
           }
         );

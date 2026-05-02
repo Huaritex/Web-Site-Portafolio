@@ -42,7 +42,7 @@ export default function Contact() {
         scrollTrigger: {
           trigger: terminalRef.current,
           start: "top 85%",
-          once: true,
+          toggleActions: "play reverse play reverse",
         },
       });
     }, sectionRef);
