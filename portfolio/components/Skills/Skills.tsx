@@ -57,9 +57,9 @@ function SkillBar({ name, level }: { name: string; level: number }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: barRef.current,
-          start: "top 85%",
-          end: "top 30%",
-          toggleActions: "play reverse play reverse",
+          start: "top 95%",
+          end: "bottom 10%",
+          toggleActions: "play none none reverse",
         },
       });
 

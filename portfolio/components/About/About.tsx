@@ -39,8 +39,8 @@ export default function About() {
         ease: "power4.out",
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
+          start: "top 95%",
+          end: "bottom 5%",
           toggleActions: "play none none reverse",
         },
       });
@@ -50,9 +50,9 @@ export default function About() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
-            end: "top 20%",
-            toggleActions: "play reverse play reverse",
+            start: "top 90%",
+            end: "bottom 10%",
+            toggleActions: "play none none reverse",
           },
         });
 
@@ -71,8 +71,8 @@ export default function About() {
         duration: 0.8,
         scrollTrigger: {
           trigger: toolsRef.current,
-          start: "top 88%",
-          end: "bottom 20%",
+          start: "top 95%",
+          end: "bottom 10%",
           toggleActions: "play none none reverse",
         },
       });
