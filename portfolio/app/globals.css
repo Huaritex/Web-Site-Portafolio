@@ -210,6 +210,33 @@ body {
   font-feature-settings: 'tnum';
 }
 
+/* Soft skills card hover border glow */
+.skill-ring-card {
+  position: relative;
+  overflow: hidden;
+}
+.skill-ring-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0,255,136,0.15), transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Web3 data-stream vertical lines */
+@keyframes data-stream {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
 /* Terminal */
 .terminal-window {
   background: rgba(8, 12, 20, 0.95);

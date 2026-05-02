@@ -1,11 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
+
+const WebGLBackground = dynamic(
+  () => import("@/components/WebGL/WebGLBackground"),
+  { ssr: false }
+);
 
 const ROLES = ["Cybersecurity", "AI/ML", "Full-Stack"];
 
@@ -106,37 +112,16 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden grid-bg"
       id="hero"
     >
-      {/* Ambient glow */}
+      {/* Three.js WebGL background */}
+      <WebGLBackground />
+
+      {/* Ambient glow (CSS, sits above WebGL) */}
       <div
         ref={glowRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(0,255,136,0.07) 0%, transparent 70%)",
-        }}
-      />
-
-      {/* Floating orbs */}
-      <div
-        className="absolute top-[15%] left-[8%] w-40 h-40 rounded-full opacity-20 float-animate"
-        style={{
-          background: "radial-gradient(circle, rgba(0,255,136,0.3), transparent)",
-          animationDelay: "0s",
-        }}
-      />
-      <div
-        className="absolute bottom-[20%] right-[6%] w-28 h-28 rounded-full opacity-15 float-animate"
-        style={{
-          background: "radial-gradient(circle, rgba(96,165,250,0.4), transparent)",
-          animationDelay: "-2s",
-          animationDuration: "8s",
-        }}
-      />
-      <div
-        className="absolute top-[60%] left-[5%] w-20 h-20 rounded-full opacity-10 float-animate"
-        style={{
-          background: "radial-gradient(circle, rgba(167,139,250,0.5), transparent)",
-          animationDelay: "-4s",
-          animationDuration: "10s",
+          background: "radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%)",
+          zIndex: 1,
         }}
       />
 

@@ -58,7 +58,8 @@ function SkillBar({ name, level }: { name: string; level: number }) {
         scrollTrigger: {
           trigger: barRef.current,
           start: "top 85%",
-          once: true,
+          end: "top 30%",
+          toggleActions: "play reverse play reverse",
         },
       });
 
@@ -122,7 +123,8 @@ export default function Skills() {
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
-          once: true,
+          end: "top 20%",
+          toggleActions: "play reverse play reverse",
         },
       });
 
@@ -136,6 +138,7 @@ export default function Skills() {
           scrollTrigger: {
             trigger: card,
             start: "top 85%",
+            end: "top 20%",
             toggleActions: "play reverse play reverse",
           },
         });

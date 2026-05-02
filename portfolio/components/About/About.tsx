@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const TOOLS = [
-  "Python", "TypeScript", "JavaScript", "Bash", "Linux", "Docker", "AWS", 
+  "Python", "TypeScript", "JavaScript", "Bash", "Linux", "Docker", "AWS",
   "Metasploit", "Burp Suite", "Wireshark", "Nmap", "TensorFlow", "OSINT"
 ];
 
@@ -38,27 +38,32 @@ export default function About() {
         duration: 1.2,
         ease: "power4.out",
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: imageRef.current,
           start: "top 75%",
-          once: true,
+          end: "top 20%",
+          toggleActions: "play reverse play reverse",
         },
       });
 
-      linesRef.current.forEach((el, i) => {
-        if (!el) return;
-        gsap.from(el, {
-          x: 40,
-          opacity: 0,
-          duration: 0.7,
-          delay: i * 0.09,
-          ease: "power3.out",
+      const validLines = linesRef.current.filter(Boolean) as HTMLElement[];
+      if (validLines.length) {
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 70%",
-            once: true,
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
           },
         });
-      });
+
+        tl.from(validLines, {
+          x: 40,
+          opacity: 0,
+          duration: 0.7,
+          stagger: 0.09,
+          ease: "power3.out",
+        });
+      }
 
       gsap.from(toolsRef.current, {
         opacity: 0,
@@ -67,7 +72,8 @@ export default function About() {
         scrollTrigger: {
           trigger: toolsRef.current,
           start: "top 88%",
-          once: true,
+          end: "top 20%",
+          toggleActions: "play reverse play reverse",
         },
       });
     }, sectionRef);

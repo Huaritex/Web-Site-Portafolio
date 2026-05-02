@@ -4,6 +4,7 @@ import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import SplitImageReveal from "@/components/SplitReveal/SplitImageReveal";
 import About from "@/components/About/About";
 import Skills from "@/components/Skills/Skills";
+import SoftSkills from "@/components/SoftSkills/SoftSkills";
 import Projects from "@/components/Projects/Projects";
 import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
@@ -28,6 +29,7 @@ export default function Home() {
         <SplitImageReveal />
         <About />
         <Skills />
+        <SoftSkills />
         <Projects />
         <Contact />
       </main>

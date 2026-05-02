@@ -84,6 +84,7 @@ export default function Preloader() {
       ref={overlayRef}
       className="fixed inset-0 z-[99999] flex flex-col items-center justify-center"
       style={{ background: "var(--color-bg)" }}
+      suppressHydrationWarning
     >
       {/* Glowing center */}
       <div
@@ -91,6 +92,7 @@ export default function Preloader() {
         style={{
           background: "radial-gradient(circle, rgba(0,255,136,0.08) 0%, transparent 70%)",
         }}
+        suppressHydrationWarning
       />
 
       <div ref={textRef} className="relative z-10 text-center">
@@ -119,6 +121,7 @@ export default function Preloader() {
               background: "linear-gradient(90deg, var(--color-accent), #60a5fa)",
               transform: "scaleX(0)",
             }}
+            suppressHydrationWarning
           />
         </div>
 
